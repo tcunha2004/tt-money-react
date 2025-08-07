@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Header",
+  "steps": [
+    {
+      "file": "src/components/Header/index.tsx",
+      "description": "Header do Projeto",
+      "line": 1
+    }
+  ]
+}
