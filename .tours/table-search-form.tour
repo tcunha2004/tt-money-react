@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Table Search Form",
+  "steps": [
+    {
+      "file": "src/pages/Transactions/components/SearchForm/index.tsx",
+      "description": "Transactions table search form",
+      "line": 4
+    }
+  ]
+}

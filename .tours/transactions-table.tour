@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Transactions Table",
+  "steps": [
+    {
+      "file": "src/pages/Transactions/index.tsx",
+      "description": "Tabela de transações do projeto",
+      "line": 15
+    }
+  ]
+}
