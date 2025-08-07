@@ -1,0 +1,16 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "New Transaction Modal",
+  "steps": [
+    {
+      "file": "src/components/Header/index.tsx",
+      "description": "Root do Modal",
+      "line": 12
+    },
+    {
+      "file": "src/components/NewTransactionalModal/index.tsx",
+      "description": "Estilização do Modal",
+      "line": 5
+    }
+  ]
+}
