@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Theme Colors",
+  "steps": [
+    {
+      "file": "src/styles/themes/default.ts",
+      "description": "Default colors of the project",
+      "line": 1
+    }
+  ]
+}

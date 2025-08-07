@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Global Style",
+  "steps": [
+    {
+      "file": "src/styles/global.ts",
+      "description": "Global Style for the project",
+      "line": 1
+    }
+  ]
+}
