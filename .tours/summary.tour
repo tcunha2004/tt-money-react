@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Summary",
+  "steps": [
+    {
+      "file": "src/components/Summary/index.tsx",
+      "description": "Money summary of the project",
+      "line": 1
+    }
+  ]
+}
