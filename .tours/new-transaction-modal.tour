@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "New Transaction Modal",
+  "title": "Transaction Modal",
   "steps": [
     {
       "file": "src/components/Header/index.tsx",
