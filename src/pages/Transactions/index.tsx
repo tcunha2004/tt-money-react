@@ -7,7 +7,7 @@ import {
   TransactionsContainer,
   TransactionsTable,
 } from "./styles";
-import { TransactionContext } from "../../contexts/TransactionContexts";
+import { TransactionContext } from "../../contexts/TransactionContext";
 import { dateFormatter, priceFormatter } from "../../utils/formatter";
 
 function Transactions() {
