@@ -8,6 +8,7 @@ import {
   TransactionsTable,
 } from "./styles";
 import { TransactionContext } from "../../contexts/TransactionContexts";
+import { dateFormatter, priceFormatter } from "../../utils/formatter";
 
 function Transactions() {
   const { transactions } = useContext(TransactionContext);
@@ -28,12 +29,14 @@ function Transactions() {
 
                   <td>
                     <PriceHighlight variant={transaction.type}>
-                      {transaction.price}
+                      {priceFormatter.format(transaction.price)}
                     </PriceHighlight>
                   </td>
 
                   <td>{transaction.category}</td>
-                  <td>{transaction.createdAt}</td>
+                  <td>
+                    {dateFormatter.format(new Date(transaction.createdAt))}
+                  </td>
                 </tr>
               );
             })}
