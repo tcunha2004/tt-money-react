@@ -8,8 +8,27 @@ import {
 } from "./styles";
 import { MdClose } from "react-icons/md";
 import { FaRegArrowAltCircleDown, FaRegArrowAltCircleUp } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+
+interface FormData {
+  desc: string;
+  price: number;
+  category: string;
+}
 
 function NewTransactionalModal() {
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<FormData>();
+
+  async function handleNewTransaction(data: FormData) {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    console.log(data.desc);
+  }
+
   return (
     <Dialog.Portal>
       <Overlay />
@@ -19,10 +38,25 @@ function NewTransactionalModal() {
           <MdClose size={24} />
         </CloseButton>
 
-        <form action="">
-          <input type="text" placeholder="Descrição" required />
-          <input type="number" placeholder="Preço" required />
-          <input type="text" placeholder="Categoria" required />
+        <form onSubmit={handleSubmit(handleNewTransaction)}>
+          <input
+            type="text"
+            placeholder="Descrição"
+            required
+            {...register("desc")}
+          />
+          <input
+            type="number"
+            placeholder="Preço"
+            required
+            {...register("price", { valueAsNumber: true })}
+          />
+          <input
+            type="text"
+            placeholder="Categoria"
+            required
+            {...register("category")}
+          />
 
           <TransactionType>
             <TransactionTypeButton variant="income" value="income">
@@ -36,7 +70,9 @@ function NewTransactionalModal() {
             </TransactionTypeButton>
           </TransactionType>
 
-          <button type="submit">Cadastrar</button>
+          <button type="submit" disabled={isSubmitting}>
+            Cadastrar
+          </button>
         </form>
       </Content>
     </Dialog.Portal>
