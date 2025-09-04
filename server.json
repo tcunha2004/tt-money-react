@@ -47,6 +47,14 @@
       "category": "SDAFAS",
       "type": "outcome",
       "createdAt": "2025-09-04T15:11:17.519Z"
+    },
+    {
+      "id": "b1c1",
+      "description": "SDFAF",
+      "price": 22,
+      "category": "ALIMENTO",
+      "type": "outcome",
+      "createdAt": "2025-09-04T18:26:53.905Z"
     }
   ]
 }

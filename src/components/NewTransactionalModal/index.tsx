@@ -9,8 +9,8 @@ import {
 import { MdClose } from "react-icons/md";
 import { FaRegArrowAltCircleDown, FaRegArrowAltCircleUp } from "react-icons/fa";
 import { Controller, useForm } from "react-hook-form";
-import { useContext } from "react";
 import { TransactionContext } from "../../contexts/TransactionContext";
+import { useContextSelector } from "use-context-selector";
 
 interface FormData {
   description: string;
@@ -20,7 +20,12 @@ interface FormData {
 }
 
 function NewTransactionalModal() {
-  const { createTransaction } = useContext(TransactionContext);
+  const createTransaction = useContextSelector(
+    TransactionContext,
+    (context) => {
+      return context.createTransaction;
+    }
+  );
   const {
     control,
     register,

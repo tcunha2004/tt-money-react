@@ -1,15 +1,20 @@
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { SearchFormContainer } from "./styles";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
 import { TransactionContext } from "../../../../contexts/TransactionContext";
+import { useContextSelector } from "use-context-selector";
 
 interface FormData {
   query: string;
 }
 
 function SearchForm() {
-  const { fetchTransactions } = useContext(TransactionContext);
+  const fetchTransactions = useContextSelector(
+    TransactionContext,
+    (context) => {
+      return context.fetchTransactions;
+    }
+  );
 
   const {
     register,
