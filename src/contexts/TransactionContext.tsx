@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode, useCallback } from "react";
 import { api } from "../lib/axios";
 import { createContext } from "use-context-selector";
 
@@ -26,7 +26,7 @@ export const TransactionContext = createContext({} as TransactionContextType);
 function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  async function fetchTransactions(query?: string) {
+  const fetchTransactions = useCallback(async (query?: string) => {
     const response = await api.get("/transactions", {
       params: {
         _sort: "createdAt",
@@ -47,9 +47,9 @@ function TransactionsProvider({ children }: TransactionsProviderProps) {
     }
 
     setTransactions(response.data);
-  }
+  }, []);
 
-  async function createTransaction(data: Transaction) {
+  const createTransaction = useCallback(async (data: Transaction) => {
     const { description, price, category, type } = data;
 
     const response = await api.post("transactions", {
@@ -61,7 +61,7 @@ function TransactionsProvider({ children }: TransactionsProviderProps) {
     });
 
     setTransactions((state) => [response.data, ...state]);
-  }
+  }, []); // array de dependencias => o que faz a função ser recriada
 
   useEffect(() => {
     fetchTransactions();
