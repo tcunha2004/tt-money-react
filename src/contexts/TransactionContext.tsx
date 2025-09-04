@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState, type ReactNode } from "react";
+import { api } from "../lib/axios";
 
 interface Transaction {
   id: number;
@@ -24,19 +25,16 @@ function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
   async function fetchTransactions(query?: string) {
-    const url = new URL("http://localhost:3000/transactions");
-
-    if (query && query.trim()) {
-      url.searchParams.set("q", query);
-    }
-
-    const response = await fetch(url);
-    const data: Transaction[] = await response.json();
+    const response = await api.get("/transactions", {
+      params: {
+        q: query,
+      },
+    });
 
     // Garantia: caso o server nao filtre
     if (query && query.trim()) {
       const normalizedQuery = query.trim().toLowerCase();
-      const filtered = data.filter((transaction) => {
+      const filtered = response.data.filter((transaction: Transaction) => {
         const description = transaction.description?.toLowerCase();
         return description.includes(normalizedQuery);
       });
@@ -44,7 +42,7 @@ function TransactionsProvider({ children }: TransactionsProviderProps) {
       return;
     }
 
-    setTransactions(data);
+    setTransactions(response.data);
   }
 
   useEffect(() => {
