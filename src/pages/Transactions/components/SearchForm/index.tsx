@@ -1,18 +1,24 @@
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { SearchFormContainer } from "./styles";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { TransactionContext } from "../../../../contexts/TransactionContext";
 
 interface FormData {
   query: string;
 }
 
 function SearchForm() {
-  const { register, handleSubmit, formState: { isSubmitting } } = useForm<FormData>();
+  const { fetchTransactions } = useContext(TransactionContext);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<FormData>();
 
   async function handleSearchTransactions(data: FormData) {
-    await new Promise(resolve => setTimeout(resolve, 2000))
-
-    console.log(data.query);
+    await fetchTransactions(data.query);
   }
 
   return (
