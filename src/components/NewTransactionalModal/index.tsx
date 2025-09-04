@@ -9,26 +9,37 @@ import {
 import { MdClose } from "react-icons/md";
 import { FaRegArrowAltCircleDown, FaRegArrowAltCircleUp } from "react-icons/fa";
 import { Controller, useForm } from "react-hook-form";
+import { useContext } from "react";
+import { TransactionContext } from "../../contexts/TransactionContext";
 
 interface FormData {
-  desc: string;
+  description: string;
   price: number;
   category: string;
   type: "income" | "outcome";
 }
 
 function NewTransactionalModal() {
+  const { createTransaction } = useContext(TransactionContext);
   const {
     control,
     register,
     handleSubmit,
     formState: { isSubmitting },
+    reset,
   } = useForm<FormData>();
 
   async function handleNewTransaction(data: FormData) {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const { description, price, category, type } = data;
 
-    console.log(data);
+    await createTransaction({
+      description,
+      price,
+      category,
+      type,
+    });
+
+    reset();
   }
 
   return (
@@ -45,7 +56,7 @@ function NewTransactionalModal() {
             type="text"
             placeholder="Descrição"
             required
-            {...register("desc")}
+            {...register("description")}
           />
           <input
             type="number"
@@ -65,7 +76,10 @@ function NewTransactionalModal() {
             name="type"
             render={({ field }) => {
               return (
-                <TransactionType onValueChange={field.onChange} value={field.value}>
+                <TransactionType
+                  onValueChange={field.onChange}
+                  value={field.value}
+                >
                   <TransactionTypeButton variant="income" value="income">
                     <FaRegArrowAltCircleUp size={24} />
                     Entrada
