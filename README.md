@@ -85,7 +85,7 @@ O **DT Money** é uma aplicação web completa para controle financeiro pessoal 
 
 ```bash
 # Clone o repositório
-git clone https://github.com/tcunha2004/dt-money.git
+git clone https://github.com/tcunha2004/tt-money-react.git
 
 # Entre no diretório
 cd dt-money
