@@ -4,10 +4,14 @@ import * as Dialog from "@radix-ui/react-dialog";
 import NewTransactionalModal from "../NewTransactionalModal";
 
 function Header() {
+  function reload() {
+    window.location.reload();
+  }
+
   return (
     <HeaderContainer>
       <HeaderContent>
-        <img src={logo} height={80} />
+        <img src={logo} height={80} onClick={reload} />
 
         <Dialog.Root>
           <Dialog.Trigger asChild>

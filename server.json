@@ -17,44 +17,12 @@
       "createdAt": "2025-08-07T16:55:01.837Z"
     },
     {
-      "id": "160a",
-      "description": "Add teste",
-      "price": 120,
-      "category": "Venda",
+      "id": "ec7d",
+      "description": "MacBook M4",
+      "price": 4800,
+      "category": "Dispositivos",
       "type": "outcome",
-      "createdAt": "2025-09-04T14:37:15.698Z"
-    },
-    {
-      "id": "fc07",
-      "description": "teste 2",
-      "price": 2,
-      "category": "venda",
-      "type": "income",
-      "createdAt": "2025-09-04T14:38:09.579Z"
-    },
-    {
-      "id": "9d8d",
-      "description": "picolé",
-      "price": 39000,
-      "category": "afsf",
-      "type": "income",
-      "createdAt": "2025-09-04T15:05:38.424Z"
-    },
-    {
-      "id": "2fd7",
-      "description": "SDDFAS",
-      "price": 39000,
-      "category": "SDAFAS",
-      "type": "outcome",
-      "createdAt": "2025-09-04T15:11:17.519Z"
-    },
-    {
-      "id": "b1c1",
-      "description": "SDFAF",
-      "price": 22,
-      "category": "ALIMENTO",
-      "type": "outcome",
-      "createdAt": "2025-09-04T18:26:53.905Z"
+      "createdAt": "2025-09-05T13:35:18.758Z"
     }
   ]
 }
