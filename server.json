@@ -12,7 +12,7 @@
       "id": "2",
       "description": "Hamburguer",
       "type": "outcome",
-      "category": "Venda",
+      "category": "Alimento",
       "price": 25,
       "createdAt": "2025-08-07T16:55:01.837Z"
     },
@@ -20,7 +20,7 @@
       "id": "ec7d",
       "description": "MacBook M4",
       "price": 4800,
-      "category": "Dispositivos",
+      "category": "Dispositivo",
       "type": "outcome",
       "createdAt": "2025-09-05T13:35:18.758Z"
     }
